@@ -15,6 +15,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'sidekiq'
 gem 'annotate'
+gem 'httparty'
 
 group :development do
   gem 'better_errors'
