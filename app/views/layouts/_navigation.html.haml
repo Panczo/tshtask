@@ -1,26 +1,27 @@
-%nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
-  .container
-    / Brand and toggle get grouped for better mobile display
-    .navbar-header.page-scroll
-      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        Menu
-        %i.fa.fa-bars
-      = link_to "CurrencyOnline", root_path, class: 'navbar-brand'
-    / Collect the nav links, forms, and other content for toggling
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav.navbar-right
-        %li.hidden
-          %a{:href => "#page-top"}
-        - if user_signed_in?
-          %li
-            = link_to 'Edit account', edit_user_registration_path 
-          %li
-            = link_to "Log out", destroy_user_session_path, method: :delete
-        - else
-          %li
-            %a.page-scroll{:href => "#features"} Features
-          %li
-            = link_to "Create Account", new_user_registration_path
-          %li
-            = link_to "Sign In", new_user_session_path
+.container
+  %nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+    .container
+      / Brand and toggle get grouped for better mobile display
+      .navbar-header.page-scroll
+        %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          Menu
+          %i.fa.fa-bars
+        = link_to "CurrencyOnline", root_path, class: 'navbar-brand'
+      / Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        %ul.nav.navbar-nav.navbar-right
+          %li.hidden
+            %a{:href => "#page-top"}
+          - if user_signed_in?
+            %li
+              = link_to 'Edit account', edit_user_registration_path 
+            %li
+              = link_to "Log out", destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to "Feature", root_path(anchor: 'features'), class: 'page-scroll'
+            %li
+              = link_to "Create Account", new_user_registration_path
+            %li
+              = link_to "Sign In", new_user_session_path
