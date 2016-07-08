@@ -415,7 +415,7 @@ section {
         color: rgba(255, 255, 255, .6);
         position: relative;
         a {
-          color: darken($soft_light_gray, 10%);
+          color: darken($soft_light_gray, 35%);
           &:hover {
             color: $main_color;
             text-decoration: none;
