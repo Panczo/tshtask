@@ -77,7 +77,8 @@ body {
 
 // change for all input focus color 
 .form-control {
-  background-color: darken($soft_light_gray, 15%);
+  background-color: $test_gray;
+  @include transition(0.6s);
   &:focus {
     background-color: lighten($soft_light_gray, 10%);
     border-color: $main_color;
