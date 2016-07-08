@@ -7,7 +7,10 @@ $main_gray:         #000;
 $dark_gray:         #363537;
 $light_gray:        rgba(0,0,0, 0.52%);
 $soft_light_gray:   #cccccc;
-$test_gray:         #202B33;
+$darken_gray:         #202B33;
+
+// variables for dashboard
+$main-background: #3E404A;
 
 // mixins
 @mixin button-variant($color, $background, $border) {
@@ -48,11 +51,11 @@ $test_gray:         #202B33;
 }
 
 html, body {
-  overflow-x: hidden;
-  min-height: 100%;
+  height: 100%;
 }
 body {
   font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: 100%;
 }
 
 // override buttons
@@ -76,13 +79,13 @@ body {
 
 //Flash messages box
 .alert {
-  margin-top: 100px;
+  margin-top: 0px;
   margin-bottom: 0px;
 }
 
 // change for all input focus color 
 .form-control {
-  background-color: $test_gray;
+  background-color: $darken_gray;
   @include transition(0.6s);
   &:focus {
     background-color: lighten($soft_light_gray, 10%);
@@ -199,10 +202,10 @@ section {
     transition: padding 0.3s;
     border: none;
     .navbar-brand {
-        font-size: 2em;
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
-        transition: all 0.3s;
+      font-size: 2em;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
     }
     .navbar-nav>.active>a {
       border-radius: 3px;
@@ -309,7 +312,7 @@ section {
   .section_form {
     padding-top: 150px;
     margin-top: 0;
-    background-color: $test_gray;     
+    background-color: $darken_gray;     
 
     .authform {
       background: $light_gray;
@@ -331,3 +334,172 @@ section {
   text-transform: none;
 }
 
+// Styles for dashboard navbar & left Side Bar
+#dashboard {
+  .container-fluid{
+    height: 100%;
+  }
+  .navbar-default {
+    background-color: $main-background; 
+    border-radius: 0;
+    border-width: 0;
+    margin-bottom: 0;
+    
+    .navbar-header {
+      padding-bottom: 20px;
+      padding-left: 40px;
+      padding-top: 20px;
+      text-transform: uppercase;
+    }
+    
+    .navbar-brand {
+      color: white;
+      font-size: 2em;
+      &:hover, &:focus, &:active, &.active {
+        color: darken($main_color, 10%);
+      }
+    } 
+
+    .navbar-right {
+      margin-bottom: 20px;
+      margin-right: 40px;
+      margin-top: 20px;
+
+      .btn-account {
+        color: white;
+        background-color: darken($main_color, 15%);
+        margin-top: 5px;
+        margin-bottom: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-transform: uppercase; 
+        &:hover, &:focus, &:active, &.active {
+          background-color: darken($main_color, 10%);
+        }
+      }
+    }
+  }
+  .row {
+    height: 100%;
+    .navi {
+      height: 100%;
+      overflow: hidden;
+      padding-right: 0;
+      background-color: $main-background;
+
+      .fa-minus {
+        color: $main_color;
+      }
+      /* Side Bar */
+      #sideMenu {
+        height: 100%;
+        width: 100%;
+        padding: 30px;
+        vertical-align: top;
+        color: #fff;
+      }
+      .menu {
+        list-style: none;
+        margin:  24px 0;
+        padding: 0;
+      }
+      .menu li {
+        display: block;
+        height: 30px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 30px;
+        font-size: 14px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, .6);
+        position: relative;
+        a {
+          color: darken($soft_light_gray, 10%);
+          &:hover {
+            color: $main_color;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width:768px) {
+  .navi {
+    padding-top: 90px;
+  }
+}
+
+// Styles for dashboard pages
+.pages_wrapper {
+  background-color: lighten($main-background, 10%);
+  height: 100%;
+
+  .page-header {
+    position: relative;
+    padding-bottom: 40px;
+    z-index : 1;
+    border: 0;
+    color: white;
+  
+    &:before {
+      content : "";
+      position: absolute;
+      left    : 0;
+      bottom  : 0;
+      height  : 2px;
+      width   : 5%;
+      border-bottom: 2px solid $main_color;
+    }
+  }
+  .exchanges {
+    .fa-refresh {
+      margin-right: 58px;
+    }
+
+    .btn-exchange {
+      border: 2px solid $main_color;
+      margin-top: 0px;
+      color: white;
+      
+      &:hover {
+        background-color: darken($main_color, 15%); 
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 47px;
+      
+      th {
+        text-align: left;
+        color: darken($soft_light_gray, 35%);
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0 10px;
+        padding-bottom: 14px;
+      }
+      
+      tr:not(:first-child) {
+        padding: 20px 0;
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+      
+      td {
+        height: 40px;
+        line-height: 40px;
+        font-weight: 300;
+        color: white;
+        padding: 10px 10px;
+      }
+    }
+    
+  }
+}

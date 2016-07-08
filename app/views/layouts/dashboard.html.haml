@@ -7,6 +7,34 @@
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-  %body
+  %body#dashboard
+    %nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to "Currency.Online", root_path, class: 'navbar-brand'
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to destroy_user_session_path, method: :delete, class: 'btn btn-account' do
+                Sign out
+                %i.fa.fa-sign-out
     = render 'layouts/messages'
-    = yield
+    .container-fluid
+      .row
+        .col-md-3.navi
+          #sideMenu
+            %ul.menu
+              %li.text-center
+                = link_to "Exchange rates", dashboard_path
+            .text-center
+              %i.fa.fa-minus
+            %ul.menu.text-center
+              - @currencies.each do |currency|
+                %li= link_to currency, '#'
+        .col-md-9.pages_wrapper
+          = yield

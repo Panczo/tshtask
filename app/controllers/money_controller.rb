@@ -1,10 +1,10 @@
 class MoneyController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_currencies
   layout 'dashboard'
 
   def index
-    #show list of exchange rates with creation time
-    #don't forget about pagination
+    @exchanges = Exchange.all
   end
 
   def show
@@ -24,6 +24,12 @@ class MoneyController < ApplicationController
     #also You can generate a simple chart(use can use some js library)
 
     #this method should be available only for currencies which exist in the database 
+  end
+
+  private 
+
+  def set_currencies
+    @currencies ||= Currency.all.pluck(:name).uniq
   end
 
 
