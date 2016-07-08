@@ -18,7 +18,7 @@
             %td= exchange.name
             %td= exchange.trading_date
             %td= exchange.effective_date
-            %td.text-center= link_to "VIEW", money_path(exchange), class: 'btn btn-exchange'
+            %td.pull-right= link_to "VIEW", money_path(exchange), class: 'btn btn-exchange'
   %h4 
     = link_to "Get latest exchange rates", refresh_rates_money_index_path, class: 'btn btn-default'
 
