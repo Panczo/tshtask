@@ -1,4 +1,6 @@
 class MoneyController < ApplicationController
+  before_action :authenticate_user!
+  layout 'dashboard'
 
   def index
     #show list of exchange rates with creation time

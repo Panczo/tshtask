@@ -2,19 +2,18 @@
 @import "bootstrap";
 @import "font-awesome";
 // variables
-$main_color:    #fed136;
-$main_gray:        #000;
-$dark_gray:    #363537;
-$light_gray:    rgba(0,0,0, 0.52%);
-$soft_light_gray:    #cccccc;
-$test_gray: #202B33;
+$main_color:        #fed136;
+$main_gray:         #000;
+$dark_gray:         #363537;
+$light_gray:        rgba(0,0,0, 0.52%);
+$soft_light_gray:   #cccccc;
+$test_gray:         #202B33;
 
 // mixins
 @mixin button-variant($color, $background, $border) {
   color: $color;
   background-color: $background;
   border-color: $border;
-
   &:hover,
   &:focus,
   &:active,
@@ -73,6 +72,12 @@ body {
   padding: 5px 10px;
   margin-top: 40px;
   border: 0;
+}
+
+//Flash messages box
+.alert {
+  margin-top: 100px;
+  margin-bottom: 0px;
 }
 
 // change for all input focus color 
@@ -218,7 +223,7 @@ section {
 }
 
 header {
-  background-image: image-url("currency-bg.jpg");
+  background-image: image-url("currency-bg.jpeg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -270,7 +275,6 @@ header {
 // Global Section Styles
 
 section {
-
   padding: 100px 0;
   h2.section-heading {
     font-size: 40px;
@@ -294,6 +298,7 @@ section {
   top:0;
   left:0;
   right:0;
+  display: block;
   color: $soft_light_gray;
 }
 
@@ -302,7 +307,7 @@ section {
     padding: 75px 0 150px 0;
   }
   .section_form {
-    padding-top: 250px;
+    padding-top: 150px;
     margin-top: 0;
     background-color: $test_gray;     
 
