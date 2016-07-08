@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'sidekiq'
 gem 'annotate'
 gem 'httparty'
+gem 'font-awesome-rails'
 
 group :development do
   gem 'better_errors'

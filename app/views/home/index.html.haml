@@ -1,3 +1,31 @@
-%h3 Ready for a challenge?
-%h4 C'mon enoy 
-= link_to "Money Information", money_index_path, class: 'btn btn-primary'
+%header
+  .container
+    .intro-text
+      .intro-lead-in Welcome To Currency online!
+      .intro-heading All information about money.
+      %a.page-scroll.btn.btn-xl{:href => "#features"} Check the latest exchange rates
+%section#features
+  .container
+    .row
+      .col-lg-12.text-center
+        %h2.section-heading Features
+        %h3.section-subheading.text-muted How can CurrencyOnline help you?
+    .row.text-center
+      .col-md-4
+        %span.fa-stack.fa-4x
+          %i.fa.fa-circle.fa-stack-2x
+          %i.fa.fa-money.fa-stack-1x.fa-inverse
+        %h4.service-heading Exchange rates
+        %p.text-muted List of exchange rates with creation time
+      .col-md-4
+        %span.fa-stack.fa-4x
+          %i.fa.fa-circle.fa-stack-2x
+          %i.fa.fa-eur.fa-stack-1x.fa-inverse
+        %h4.service-heading Currencies
+        %p.text-muted Currencies for selected exchange rate
+      .col-md-4
+        %span.fa-stack.fa-4x
+          %i.fa.fa-circle.fa-stack-2x
+          %i.fa.fa-line-chart.fa-stack-1x.fa-inverse
+        %h4.service-heading Reports
+        %p.text-muted Generate a report for selected currency
