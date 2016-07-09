@@ -95,6 +95,11 @@ body {
   }
 }
 
+input#user_remember_me {
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
 
 // make all images responsive by default
 img {
@@ -373,7 +378,7 @@ section {
         padding-top: 10px;
         padding-bottom: 10px;
         text-transform: uppercase; 
-        &:hover, &:focus, &:active, &.active {
+        &:hover, &:focus, &:active {
           background-color: darken($main_color, 10%);
         }
       }
@@ -455,8 +460,18 @@ section {
     }
   }
   .exchanges {
-    .fa-refresh {
-      margin-right: 58px;
+    .btn-refresh {
+      background: transparent none repeat scroll 0 0;
+      margin-right: 55px;
+      padding-left: 0;
+      padding-right: 0;
+      .fa-refresh {
+        font-size: 27px;
+        margin-right: 0px;
+      }
+      &:hover, &:focus, &:active {
+        color: darken($main_color, 15%); 
+      }
     }
 
     .btn-exchange {
@@ -468,6 +483,7 @@ section {
         background-color: darken($main_color, 15%); 
       }
     }
+
 
     table {
       width: 100%;
@@ -499,6 +515,22 @@ section {
         color: white;
         padding: 10px 10px;
         margin-right: 20px;
+      }
+    }
+
+    .pagination {
+      margin-top: 40px;
+      .fa {
+        cursor: pointer;
+        font-size: 25px;
+        color: $main_color;
+      }
+      .fa-angle-left {
+        margin-right: 25px;
+      }
+
+      .fa-angle-right {
+        margin-left: 25px;
       }
     }
     

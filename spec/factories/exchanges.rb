@@ -6,8 +6,8 @@
 #  name           :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
-#  trading_date   :string(255)
-#  effective_date :string(255)
+#  trading_date   :datetime
+#  effective_date :datetime
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

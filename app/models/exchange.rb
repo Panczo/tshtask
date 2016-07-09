@@ -6,8 +6,8 @@
 #  name           :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
-#  trading_date   :string(255)
-#  effective_date :string(255)
+#  trading_date   :datetime
+#  effective_date :datetime
 #
 
 class Exchange < ActiveRecord::Base
@@ -21,4 +21,13 @@ class Exchange < ActiveRecord::Base
   def save_current_rates
 
   end
+
+  def trading_date
+    self.read_attribute(:trading_date).strftime('%Y-%m-%d')
+  end
+
+  def effective_date
+    self.read_attribute(:effective_date).strftime('%Y-%m-%d')
+  end
+
 end

@@ -4,7 +4,7 @@ class MoneyController < ApplicationController
   layout 'dashboard'
 
   def index
-    @exchanges = Exchange.all
+    @exchanges = Exchange.all.order(effective_date: :desc)
   end
 
   def show

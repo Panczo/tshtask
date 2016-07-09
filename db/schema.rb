@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20160707183423) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "trading_date"
-    t.string   "effective_date"
+    t.datetime "trading_date"
+    t.datetime "effective_date"
   end
 
   create_table "users", force: true do |t|

@@ -21,4 +21,4 @@
 -#             %td.pull-right= link_to "VIEW", money_path(exchange), class: 'btn btn-exchange'
 -#   %h4 
 -#     = link_to "Get latest exchange rates", refresh_rates_money_index_path, class: 'btn btn-default'
-= react_component 'Exchanges', { exchanges: @exchanges }
+= react_component 'Exchanges', { exchanges: @exchanges, refresh_path: refresh_rates_money_index_path }

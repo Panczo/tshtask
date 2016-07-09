@@ -18,7 +18,7 @@ gem 'annotate'
 gem 'httparty'
 gem 'font-awesome-rails'
 gem 'react-rails'
-
+gem 'lodash-rails'
 
 group :development do
   gem 'better_errors'
