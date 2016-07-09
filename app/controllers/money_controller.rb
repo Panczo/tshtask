@@ -8,7 +8,7 @@ class MoneyController < ApplicationController
   end
 
   def show
-    #show table of currencies for selected exchange rate
+    @exchange = Exchange.find(params[:id])
   end
 
   def refresh_rates
