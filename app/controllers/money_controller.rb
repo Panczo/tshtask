@@ -22,6 +22,8 @@ class MoneyController < ApplicationController
   end
 
   def report
+    @currency_name = params[:currency_name]
+    @currency = Currency.where(name: @currency_name).all
     #generate a report for selected currency
     #report should show: basic statistics: mean, median, average
     #also You can generate a simple chart(use can use some js library)

@@ -35,6 +35,6 @@
               %i.fa.fa-minus
             %ul.menu.text-center
               - @currencies.each do |currency|
-                %li= link_to currency, '#'
+                %li= link_to currency, report_path(currency_name: currency)
         .col-md-9.pages_wrapper
           = yield
