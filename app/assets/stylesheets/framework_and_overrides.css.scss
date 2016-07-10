@@ -1,6 +1,7 @@
 // import the CSS framework
 @import "bootstrap";
 @import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:600italic,400);
 // variables
 $main_color:        #fed136;
 $main_gray:         #000;
@@ -90,6 +91,12 @@ body {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+.alert-success {
+  margin-top: 10px;
+  background-color: white;
+  border-color: $main-background;
+  color: $main-background;
+}
 
 // change for all input focus color 
 .form-control {
@@ -117,6 +124,7 @@ img {
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
@@ -402,6 +410,7 @@ section {
       }
       /* Side Bar */
       #sideMenu {
+        font-family: 'Josefin Sans', sans-serif;
         width: 100%;
         padding: 30px;
         vertical-align: top;
@@ -445,14 +454,15 @@ section {
 .pages_wrapper {
   background-color: $pages_wrapper_bg;
   height: 1400px;
-
+  font-family: 'Josefin Sans', sans-serif;
   .page-header {
     position: relative;
     padding-bottom: 40px;
     z-index : 1;
     border: 0;
     color: white;
-  
+    font-family: 'Josefin Sans', sans-serif;
+
     &:before {
       content : "";
       position: absolute;
@@ -595,12 +605,14 @@ section {
       }
     }
     h4 {
+      font-family: 'Josefin Sans', sans-serif;
       color: darken($soft_light_gray, 35%);
       text-transform: uppercase;
     }
     .score {
       color: white;
       .count {
+        font-family: 'Josefin Sans', sans-serif;
         font-size: 40px;
       }
     }
@@ -614,6 +626,7 @@ section {
     background-color: $main-background;
     
     h4 {
+      font-family: 'Josefin Sans', sans-serif;
       color: darken($soft_light_gray, 35%) !important;
       text-transform: uppercase !important;
     }

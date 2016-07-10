@@ -16,4 +16,7 @@
 class Currency < ActiveRecord::Base
   belongs_to :exchange
   scope :with_currency, ->(name) { where('name = ?', name) }
+
+  validates :name, :buy_price, :sell_price, :exchange, presence: true 
+
 end

@@ -23,7 +23,6 @@
               = link_to destroy_user_session_path, method: :delete, class: 'btn btn-account' do
                 Sign out
                 %i.fa.fa-sign-out
-    = render 'layouts/messages'
     .container-fluid.dash_wrapper
       .row
         .col-md-3.navi
@@ -37,4 +36,5 @@
               - Currency.all.pluck(:name).uniq.each do |currency|
                 %li= link_to currency, report_path(currency_name: currency)
         .col-md-9.col-md-offset-3.pages_wrapper
+          = render 'layouts/messages'
           = yield

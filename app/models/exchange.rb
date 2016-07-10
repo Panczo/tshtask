@@ -12,8 +12,9 @@
 
 class Exchange < ActiveRecord::Base
   has_many :currencies, dependent: :destroy
-  #you can change names if you don't like them
   
+  validates :name, :trading_date, :effective_date, presence: true 
+
   def get_nbp_json
     #download last exchange
     resp = HTTParty.get("http://api.nbp.pl/api/exchangerates/tables/c/?format=json")
