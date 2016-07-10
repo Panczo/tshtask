@@ -10,7 +10,9 @@ $soft_light_gray:   #cccccc;
 $darken_gray:         #202B33;
 
 // variables for dashboard
-$main-background: #3E404A;
+$main-background: #0F1518;
+$pages_wrapper_bg: #202B33;
+
 
 // mixins
 @mixin button-variant($color, $background, $border) {
@@ -49,13 +51,11 @@ $main-background: #3E404A;
     background-color: $color;
   }
 }
-
-html, body {
-  height: 100%;
+html, body, .container-fluid, .row {
+    height: 100%;
 }
 body {
   font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  min-height: 100%;
 }
 
 // override buttons
@@ -77,6 +77,14 @@ body {
   border: 0;
 }
 
+.currency_link {
+  text-decoration: none;
+  color: white;
+  &:hover, &:active, &:focus {
+    color: darken($main_color, 15%);
+    text-decoration: none;
+  }
+}
 //Flash messages box
 .alert {
   margin-top: 0px;
@@ -349,7 +357,7 @@ section {
     border-radius: 0;
     border-width: 0;
     margin-bottom: 0;
-    
+    z-index: 1;
     .navbar-header {
       padding-bottom: 20px;
       padding-left: 40px;
@@ -385,10 +393,7 @@ section {
     }
   }
   .row {
-    height: 100%;
     .navi {
-      height: 100%;
-      overflow: hidden;
       padding-right: 0;
       background-color: $main-background;
 
@@ -397,7 +402,6 @@ section {
       }
       /* Side Bar */
       #sideMenu {
-        height: 100%;
         width: 100%;
         padding: 30px;
         vertical-align: top;
@@ -439,8 +443,8 @@ section {
 
 // Styles for dashboard pages
 .pages_wrapper {
-  background-color: lighten($main-background, 10%);
-  height: 100%;
+  background-color: $pages_wrapper_bg;
+  height: 1400px;
 
   .page-header {
     position: relative;
@@ -504,6 +508,7 @@ section {
       
       tbody tr {
         padding: 20px 0;
+        @include transition(0.6s);
         &:hover {
           background: rgba(255, 255, 255, 0.1);
         }
@@ -548,6 +553,69 @@ section {
           line-height: 20px;
         }
       }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .navi {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: block;
+    background-color: #CCCCCC;
+  }
+}
+// Currency report site
+.currency_report {
+  color: $main_gray;
+  border-bottom-width: 20px;
+  border-top-width: 0;
+  margin-bottom: 20px;
+  margin-top: 0;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  
+  .stats {
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    background-color: $main-background;
+
+    @include transition(0.6s);
+    &:hover {
+      background-color: lighten($soft_light_gray, 10%);
+      box-shadow: 0 1px 1px rgba(254,197,3, 0.075) inset, 0 0 8px rgba(254,197,3, 0.02);
+      outline: 0 none;
+      color: $main-background;
+      h4, .score {
+        color: $main-background;
+      }
+    }
+    h4 {
+      color: darken($soft_light_gray, 35%);
+      text-transform: uppercase;
+    }
+    .score {
+      color: white;
+      .count {
+        font-size: 40px;
+      }
+    }
+  }
+
+  .charts {
+    margin-top: 0;
+    margin-bottom: 40px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: $main-background;
+    
+    h4 {
+      color: darken($soft_light_gray, 35%) !important;
+      text-transform: uppercase !important;
     }
   }
 }

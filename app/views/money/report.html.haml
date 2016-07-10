@@ -1,3 +1,43 @@
-%h4 
-  Welcome from currency
-  = @currency_name
+.container.exchanges.currency_report
+  .row
+    .col-md-12
+      %h3.page-header
+        .pull-left
+          = @currency_name
+          = @currency.first.code
+        .pull-right
+          = link_to dashboard_path, class: 'btn-refresh' do
+            %i.fa.fa-arrow-left
+  .row.text-center
+    .col-md-6.stats
+      .text-center 
+        %h4 Buy price
+      .row.score
+        .col-md-6
+          %h6 Median
+          .count
+            = median(@currency_bp)
+        .col-md-6
+          %h6 Average
+          .count
+            = average(@currency_bp)
+    .col-md-6.stats
+      .text-center
+        %h4 Sell price
+      .row.score
+        .col-md-6
+          %h6 Median
+          .count
+            = median(@currency_sp)
+        .col-md-6
+          %h6 Average
+          .count
+            = average(@currency_sp)
+  .row.charts
+    .col-md-12
+      %h4.text-center Buy price chart
+      = area_chart @currency_chart_bp
+  .row.charts
+    .col-md-12
+      %h4.text-center Sell price chart
+      = area_chart @currency_chart_sp

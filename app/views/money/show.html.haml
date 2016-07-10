@@ -24,7 +24,7 @@
         %tbody 
           - @exchange.currencies.each do |currency|  
             %tr
-              %td= currency.name
+              %td= link_to currency.name, report_path(currency_name: currency.name), class: 'currency_link'
               %td= currency.code
               %td= currency.buy_price
               %td= currency.sell_price

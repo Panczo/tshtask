@@ -20,6 +20,9 @@ gem 'font-awesome-rails'
 gem 'react-rails'
 gem 'lodash-rails'
 gem 'toastr-rails'
+gem 'chartkick'
+gem 'groupdate'
+
 
 group :development do
   gem 'better_errors'

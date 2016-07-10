@@ -1,6 +1,5 @@
 class MoneyController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_currencies
   layout 'dashboard'
 
   def index
@@ -23,19 +22,10 @@ class MoneyController < ApplicationController
 
   def report
     @currency_name = params[:currency_name]
-    @currency = Currency.where(name: @currency_name).all
-    #generate a report for selected currency
-    #report should show: basic statistics: mean, median, average
-    #also You can generate a simple chart(use can use some js library)
-
-    #this method should be available only for currencies which exist in the database 
+    @currency = Currency.where(name: @currency_name)
+    @currency_bp = @currency.pluck(:buy_price)
+    @currency_sp = @currency.pluck(:sell_price)
+    @currency_chart_bp = @currency.pluck(:trading_date, :buy_price)
+    @currency_chart_sp = @currency.pluck(:trading_date, :sell_price)
   end
-
-  private 
-
-  def set_currencies
-    @currencies ||= Currency.all.pluck(:name).uniq
-  end
-
-
 end

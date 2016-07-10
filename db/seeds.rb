@@ -15,6 +15,6 @@ resp.parsed_response.each do |exchange|
   
   p "Kursy walut na dzień: #{exchange["effectiveDate"]}"
   exchange["rates"].each do |kurs|
-    ex.currencies.create(name: kurs["currency"], code: kurs["code"], buy_price: kurs["bid"], sell_price: kurs["ask"])
+    ex.currencies.create(name: kurs["currency"], code: kurs["code"], buy_price: kurs["bid"], sell_price: kurs["ask"], trading_date: exchange["tradingDate"], effective_date: exchange["effectiveDate"])
   end
 end

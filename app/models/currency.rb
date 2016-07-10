@@ -15,5 +15,5 @@
 
 class Currency < ActiveRecord::Base
   belongs_to :exchange
-  
+  scope :with_currency, ->(name) { where('name = ?', name) }
 end

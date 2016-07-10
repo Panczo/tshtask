@@ -24,7 +24,7 @@
                 Sign out
                 %i.fa.fa-sign-out
     = render 'layouts/messages'
-    .container-fluid
+    .container-fluid.dash_wrapper
       .row
         .col-md-3.navi
           #sideMenu
@@ -34,7 +34,7 @@
             .text-center
               %i.fa.fa-minus
             %ul.menu.text-center
-              - @currencies.each do |currency|
+              - Currency.all.pluck(:name).uniq.each do |currency|
                 %li= link_to currency, report_path(currency_name: currency)
-        .col-md-9.pages_wrapper
+        .col-md-9.col-md-offset-3.pages_wrapper
           = yield

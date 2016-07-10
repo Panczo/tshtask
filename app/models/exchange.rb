@@ -13,7 +13,7 @@
 class Exchange < ActiveRecord::Base
   has_many :currencies, dependent: :destroy
   #you can change names if you don't like them
-
+  
   def get_nbp_json
     #download last exchange
     resp = HTTParty.get("http://api.nbp.pl/api/exchangerates/tables/c/?format=json")
@@ -35,7 +35,7 @@ class Exchange < ActiveRecord::Base
     self.trading_date = parsed_resp["tradingDate"]
     self.effective_date = parsed_resp["effectiveDate"]
     parsed_resp["rates"].each do |rate|
-      self.currencies << Currency.new(name: rate["currency"], code: rate["code"], buy_price: rate["bid"], sell_price: rate["ask"])
+      self.currencies << Currency.new(name: rate["currency"], code: rate["code"], buy_price: rate["bid"], sell_price: rate["ask"], trading_date: parsed_resp["tradingDate"], effective_date: parsed_resp["effectiveDate"])
     end
     return self
   end
