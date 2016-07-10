@@ -465,12 +465,13 @@ section {
       margin-right: 55px;
       padding-left: 0;
       padding-right: 0;
-      .fa-refresh {
+      .fa {
+        color: white;
         font-size: 27px;
         margin-right: 0px;
-      }
-      &:hover, &:focus, &:active {
-        color: darken($main_color, 15%); 
+        &:hover, &:focus, &:active {
+          color: darken($main_color, 15%); 
+        }
       }
     }
 
@@ -533,6 +534,20 @@ section {
         margin-left: 25px;
       }
     }
-    
+  }
+  .currencies {
+    .exchange_name {
+      padding-left: 0px;
+      padding-right: 60px;
+    }
+
+    .currencies_table {
+      tbody {
+        td {
+          height: 20px;
+          line-height: 20px;
+        }
+      }
+    }
   }
 }

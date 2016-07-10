@@ -1,1 +1,30 @@
-%h4 Hello from exchange show page :)
+.container.exchanges.currencies
+  .row
+    .col-md-12
+      %h3.page-header
+        .pull-left
+          .col-md-4.exchange_name
+            = @exchange.name
+          .col-md-4
+            = @exchange.trading_date
+          .col-md-4
+            = @exchange.effective_date
+        .pull-right
+          = link_to dashboard_path, class: 'btn-refresh' do
+            %i.fa.fa-arrow-left
+  .row
+    .col-md-12
+      %table.currencies_table
+        %thead
+          %tr
+            %th Currency
+            %th Code
+            %th Buy price
+            %th Sell price
+        %tbody 
+          - @exchange.currencies.each do |currency|  
+            %tr
+              %td= currency.name
+              %td= currency.code
+              %td= currency.buy_price
+              %td= currency.sell_price

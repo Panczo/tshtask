@@ -19,8 +19,6 @@ var Exchanges = React.createClass({
     this.setState({exchanges_range: ex.length});
   },
   handleRefresh: function() {
-    console.log("refresh");
-    console.log(this.props.exchanges[0].name);
     $.ajax({ 
       url: this.state.refresh_path, 
       type: 'GET', 
@@ -31,7 +29,6 @@ var Exchanges = React.createClass({
         toastr.success('List was successfully refreshed', 'Success');
       }.bind(this),
       error: function(xhr) {
-        console.log('Coś poszło nie tak');
         var errormsg = $.parseJSON(xhr.responseText).errors
         toastr.error(errormsg);
       },
@@ -62,13 +59,7 @@ var Exchanges = React.createClass({
     this.setState({current_page: this.state.current_page - 1})
   },
   render: function() {
-    console.log("Exchange1:")
-    console.log(this.state.exchanges);
     var ex = _.chunk(this.state.exchanges, 8);
-    console.log("EXXXXXXXXXXXXXXX");
-    console.log(ex);
-    console.log("THIS STATE EXCHANGESS");
-    console.log(this.state.exchanges);
     var exchanges = ex[this.state.current_page].map((exchange) => { 
       return ( 
         <tr key={exchange.id}> 
