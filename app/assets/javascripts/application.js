@@ -18,4 +18,6 @@
 //= require react_ujs
 //= require components
 //= require lodash
+//= require toastr
 //= require_tree .
+

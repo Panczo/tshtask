@@ -12,10 +12,13 @@ class MoneyController < ApplicationController
   end
 
   def refresh_rates
-    #for manual refreshing
-    #get latest exchange rates and save to db
-    #can be helpful: 
-    #http://www.nbp.pl/home.aspx?f=/kursy/instrukcja_pobierania_kursow_walut.html
+    exchange = Exchange.new
+    @resp = exchange.get_nbp_json
+    if @resp.is_a?(Exchange) && @resp.save
+      render :json => @resp
+    else
+      render :json => { :errors => @resp }, :status => 422
+    end
   end
 
   def report

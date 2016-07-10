@@ -16,46 +16,32 @@ var Exchanges = React.createClass({
   },
   componentDidMount: function() {
     var ex = _.chunk(this.state.exchanges, 8);
-    this.setState({exchanges_range: ex.length})
+    this.setState({exchanges_range: ex.length});
   },
   handleRefresh: function() {
     console.log("refresh");
-    console.log(this.state.refresh_path);
-/*    e.preventDefault();
+    console.log(this.props.exchanges[0].name);
     $.ajax({ 
       url: this.state.refresh_path, 
       type: 'GET', 
       datatype: 'json',
-      data: { last_: { opis: opis, start: this.state.start, end_time: this.state.end_time, patient_id: pacjent } }, 
-      success: function(visit) {
-        $('#myModall').modal('hide');
-        obvisit = {
-          title: visit.title,
-          start: visit.start,
-          end: visit.end_time
-        }
-        $('#calendar').fullCalendar('renderEvent', obvisit, true);
-        setTimeout(function() {
-          toastr.options = {
-            closeButton: true,
-            progressBar: true,
-            showMethod: 'slideDown',
-            timeOut: 4000
-          };
-          toastr.success("Wizyta została zapisana");
-        }, 500);
-      },
+      success: function(exchange) {
+        var nowe_ex = _.concat(exchange, this.state.exchanges);
+        this.setState({ exchanges: nowe_ex });
+        toastr.success('List was successfully refreshed', 'Success');
+      }.bind(this),
       error: function(xhr) {
-        var errors = $.parseJSON(xhr.responseText).errors
-        that.setState({errors: errors});
+        console.log('Coś poszło nie tak');
+        var errormsg = $.parseJSON(xhr.responseText).errors
+        toastr.error(errormsg);
       },
-      beforeSend: function() { 
+/*      beforeSend: function() { 
         that.setState({load: !that.state.load}) 
       },
       complete: function() {
         that.setState({load: !that.state.load})
-      }
-    });*/
+      }*/
+    });
   },
   renderAnglePrevious: function() {
     if ( this.state.current_page != 0 ) {
@@ -76,9 +62,13 @@ var Exchanges = React.createClass({
     this.setState({current_page: this.state.current_page - 1})
   },
   render: function() {
+    console.log("Exchange1:")
+    console.log(this.state.exchanges);
     var ex = _.chunk(this.state.exchanges, 8);
-    console.log(ex.length);
-    console.log(this.state.current_page);
+    console.log("EXXXXXXXXXXXXXXX");
+    console.log(ex);
+    console.log("THIS STATE EXCHANGESS");
+    console.log(this.state.exchanges);
     var exchanges = ex[this.state.current_page].map((exchange) => { 
       return ( 
         <tr key={exchange.id}> 
