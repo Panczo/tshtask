@@ -13,8 +13,31 @@
 #  updated_at  :datetime
 #
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe Currency do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  it 'is valid with name, code, buy price, sell_price' do
+    currency = Currency.new(
+      name: 'Euro',
+      code: 'eur',
+      buy_price: '3.39',
+      sell_price: '4.23'
+      )
+    expect(currency).to be_valid
+  end
+
+  it 'is invalid without a name' do
+    currency = Currency.new(
+      name: nil,
+      code: nil,
+      buy_price: nil,
+      sell_price: nil
+      )
+    currency.valid?
+    expect(currency.errors[:name]).to include("can't be blank")
+    expect(currency.errors[:code]).to include("can't be blank")
+    expect(currency.errors[:sell_price]).to include("can't be blank")
+    expect(currency.errors[:buy_price]).to include("can't be blank")
+  end
 end

@@ -14,6 +14,8 @@
 
 FactoryGirl.define do
   factory :exchange do
-    name "MyString"
+    name "C1"
+    trading_date "2016-01-02"
+    effective_date "2016-01-02"
   end
 end
