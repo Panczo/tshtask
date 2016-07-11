@@ -18,16 +18,14 @@ class Exchange < ActiveRecord::Base
   def get_nbp_json
     #download last exchange
     resp = HTTParty.get("http://api.nbp.pl/api/exchangerates/tables/c/?format=json")
-    parsed_resp = resp.parsed_response
-    
-    #if there isn't any new exchange
-    if parsed_resp.include? "404 NotFound" || "400 Bad Request" 
-      return "Something went wrong"
-    #if exchange exist
-    elsif Exchange.find_by(name: parsed_resp[0]["no"])
-      return 'The latest exchange: ' + parsed_resp[0]["no"] + ' is on the list. '
+    if resp.code == 200
+      parsed_resp = resp.parsed_response[0]
+      if Exchange.find_by(name: parsed_resp["no"])
+        return 'The latest exchange: ' + parsed_resp["no"] + ' is on the list. '
+      end
+      save_current_rates(parsed_resp)
     else
-      save_current_rates(parsed_resp[0])
+      return resp.parsed_response
     end
   end
 
@@ -40,14 +38,4 @@ class Exchange < ActiveRecord::Base
     end
     return self
   end
-=begin
-def trading_date
-    self[:trading_date].strftime('%Y-%m-%d')
-  end
-
-  def effective_date
-    self[:effective_date].strftime('%Y-%m-%d')
-  end
-=end
-
 end
