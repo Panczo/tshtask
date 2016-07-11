@@ -1,7 +1,11 @@
 require 'httparty' 
 
 puts 'DEFAULT USERS'
-user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
+user = User.find_or_create_by(email: ENV['ADMIN_EMAIL'].dup) do |u|
+  u.name = ENV['ADMIN_NAME'].dup
+  u.password = ENV['ADMIN_PASSWORD'].dup
+  u.password_confirmation = ENV['ADMIN_PASSWORD'].dup
+end
 puts 'user: ' << user.name
 
 #Seed last 93 exchange rates from nbp

@@ -1,6 +1,5 @@
-class ExchangeMailer < ActionMailer::Base
-  default from: "tpanek.tshtask@gmail.com"
-
+class ExchangeMailer < ApplicationMailer
+  layout 'mailer'
   def exchange_created(user, exchange)
     @user = user
     @exchange = exchange

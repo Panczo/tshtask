@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20160710143239) do
   enable_extension "hstore"
   enable_extension "uuid-ossp"
 
-  create_table "currencies", force: true do |t|
-    t.string   "name"
+  create_table "currencies", force: :cascade do |t|
+    t.string   "name",           limit: 255
     t.integer  "converter"
-    t.string   "code"
+    t.string   "code",           limit: 255
     t.float    "buy_price"
     t.float    "sell_price"
     t.integer  "exchange_id"
@@ -33,28 +33,28 @@ ActiveRecord::Schema.define(version: 20160710143239) do
 
   add_index "currencies", ["exchange_id"], name: "index_currencies_on_exchange_id", using: :btree
 
-  create_table "exchanges", force: true do |t|
-    t.string   "name"
+  create_table "exchanges", force: :cascade do |t|
+    t.string   "name",           limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "trading_date"
-    t.datetime "effective_date"
+    t.string   "trading_date",   limit: 255
+    t.string   "effective_date", limit: 255
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
+    t.string   "name",                   limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

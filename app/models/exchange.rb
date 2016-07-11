@@ -40,13 +40,14 @@ class Exchange < ActiveRecord::Base
     end
     return self
   end
-
-  def trading_date
-    self.read_attribute(:trading_date).strftime('%Y-%m-%d')
+=begin
+def trading_date
+    self[:trading_date].strftime('%Y-%m-%d')
   end
 
   def effective_date
-    self.read_attribute(:effective_date).strftime('%Y-%m-%d')
+    self[:effective_date].strftime('%Y-%m-%d')
   end
+=end
 
 end
