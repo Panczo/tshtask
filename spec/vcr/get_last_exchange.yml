@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.nbp.pl/api/exchangerates/tables/c/?format=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1007'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Etag:
+      - '"7lSY8K0nSAgvbvbMftpFYiVKQhMcI+2Tf7htoCFx75Q="'
+      Date:
+      - Mon, 11 Jul 2016 20:33:49 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sidGFibGUiOiJDIiwibm8iOiIxMzIvQy9OQlAvMjAxNiIsInRyYWRpbmdE
+        YXRlIjoiMjAxNi0wNy0wOCIsImVmZmVjdGl2ZURhdGUiOiIyMDE2LTA3LTEx
+        IiwicmF0ZXMiOlt7ImN1cnJlbmN5IjoiZG9sYXIgYW1lcnlrYcWEc2tpIiwi
+        Y29kZSI6IlVTRCIsImJpZCI6My45NTUwLCJhc2siOjQuMDM1MH0seyJjdXJy
+        ZW5jeSI6ImRvbGFyIGF1c3RyYWxpanNraSIsImNvZGUiOiJBVUQiLCJiaWQi
+        OjIuOTc4OSwiYXNrIjozLjAzOTF9LHsiY3VycmVuY3kiOiJkb2xhciBrYW5h
+        ZHlqc2tpIiwiY29kZSI6IkNBRCIsImJpZCI6My4wMzQyLCJhc2siOjMuMDk1
+        NH0seyJjdXJyZW5jeSI6ImV1cm8iLCJjb2RlIjoiRVVSIiwiYmlkIjo0LjM3
+        MDcsImFzayI6NC40NTg5fSx7ImN1cnJlbmN5IjoiZm9yaW50IChXxJlncnkp
+        IiwiY29kZSI6IkhVRiIsImJpZCI6MC4wMTM5MDksImFzayI6MC4wMTQxODl9
+        LHsiY3VycmVuY3kiOiJmcmFuayBzendhamNhcnNraSIsImNvZGUiOiJDSEYi
+        LCJiaWQiOjQuMDIyOSwiYXNrIjo0LjEwNDF9LHsiY3VycmVuY3kiOiJmdW50
+        IHN6dGVybGluZyIsImNvZGUiOiJHQlAiLCJiaWQiOjUuMTIzOCwiYXNrIjo1
+        LjIyNzR9LHsiY3VycmVuY3kiOiJqZW4gKEphcG9uaWEpIiwiY29kZSI6IkpQ
+        WSIsImJpZCI6MC4wMzkyNzQsImFzayI6MC4wNDAwNjh9LHsiY3VycmVuY3ki
+        OiJrb3JvbmEgY3plc2thIiwiY29kZSI6IkNaSyIsImJpZCI6MC4xNjE4LCJh
+        c2siOjAuMTY1MH0seyJjdXJyZW5jeSI6Imtvcm9uYSBkdcWEc2thIiwiY29k
+        ZSI6IkRLSyIsImJpZCI6MC41ODc0LCJhc2siOjAuNTk5Mn0seyJjdXJyZW5j
+        eSI6Imtvcm9uYSBub3J3ZXNrYSIsImNvZGUiOiJOT0siLCJiaWQiOjAuNDY1
+        NCwiYXNrIjowLjQ3NDh9LHsiY3VycmVuY3kiOiJrb3JvbmEgc3p3ZWR6a2Ei
+        LCJjb2RlIjoiU0VLIiwiYmlkIjowLjQ2MDMsImFzayI6MC40Njk1fSx7ImN1
+        cnJlbmN5IjoiU0RSIChNRlcpIiwiY29kZSI6IlhEUiIsImJpZCI6NS40OTU1
+        LCJhc2siOjUuNjA2NX1dfV0=
+    http_version: 
+  recorded_at: Mon, 11 Jul 2016 20:33:49 GMT
+recorded_with: VCR 3.0.3

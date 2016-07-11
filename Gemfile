@@ -25,6 +25,8 @@ gem 'toastr-rails'
 gem 'chartkick'
 gem 'groupdate'
 gem 'email_validator'
+gem 'webmock'  
+gem 'vcr'  
 
 group :development do
   gem 'better_errors'

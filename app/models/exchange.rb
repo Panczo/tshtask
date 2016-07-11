@@ -25,7 +25,7 @@ class Exchange < ActiveRecord::Base
       end
       save_current_rates(parsed_resp)
     else
-      return resp.parsed_response
+      return "Something went wrong. Please try letter"
     end
   end
 
