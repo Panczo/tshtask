@@ -91,7 +91,7 @@ body {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.alert-success {
+.alert-success, .alert-danger {
   margin-top: 10px;
   background-color: white;
   border-color: $main-background;
@@ -660,7 +660,7 @@ section {
         @include transition(0.6s);
       }
       .fa-inverse {
-        color: $main-background;
+        color: $main_color;
         @include transition(0.6s);
       }  
     }
