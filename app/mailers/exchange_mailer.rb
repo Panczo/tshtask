@@ -1,5 +1,4 @@
 class ExchangeMailer < ApplicationMailer
-  layout 'mailer'
   def exchange_created(user, exchange)
     @user = user
     @exchange = exchange
