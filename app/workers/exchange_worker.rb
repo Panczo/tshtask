@@ -19,6 +19,9 @@ class ExchangeWorker
         ex.currencies << Currency.new(name: rate["currency"], code: rate["code"], buy_price: rate["bid"], sell_price: rate["ask"], trading_date: parsed_resp[0]["tradingDate"], effective_date: parsed_resp[0]["effectiveDate"])
       end
       ex.save!
+      User.find_each do |user|
+        ExchangeMailer.exchange_created(user, ex).deliver_now
+      end
     end
   end
 end

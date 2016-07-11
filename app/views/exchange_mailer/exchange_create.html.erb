@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome, <%= @user.email %></h1>
+    <p>
+      I want to inform you that new exchange was created!
+    </p>
+    <p>
+      To check this exchange, just follow this link: <%= money_url(@exchange) %>.
+    </p>
+    <p>Have a great day!</p>
+  </body>
+</html>
