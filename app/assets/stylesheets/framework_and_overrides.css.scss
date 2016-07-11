@@ -632,3 +632,12 @@ section {
     }
   }
 }
+
+.feature {
+  padding: 0px;
+  margin-left: 0px;
+  &:hover {
+    color: white;
+    background-color: $main-background;
+  }
+}
