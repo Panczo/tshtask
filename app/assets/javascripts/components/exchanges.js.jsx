@@ -4,7 +4,8 @@ var Exchanges = React.createClass({
       exchanges: this.props.exchanges,
       refresh_path: this.props.refresh_path,
       current_page: 0,
-      exchanges_range: 0
+      exchanges_range: 0,
+      load: false
     }
   },
   getDefaultProps: function() {
@@ -32,12 +33,12 @@ var Exchanges = React.createClass({
         var errormsg = $.parseJSON(xhr.responseText).errors
         toastr.error(errormsg);
       },
-/*      beforeSend: function() { 
-        that.setState({load: !that.state.load}) 
-      },
+      beforeSend: function() { 
+        this.setState({load: !this.state.load}) 
+      }.bind(this),
       complete: function() {
-        that.setState({load: !that.state.load})
-      }*/
+        this.setState({load: !this.state.load})
+      }.bind(this)
     });
   },
   renderAnglePrevious: function() {
@@ -72,6 +73,13 @@ var Exchanges = React.createClass({
         </tr> 
       ) 
     });
+    var loading_buttom;
+    if (this.state.load){
+      loading_buttom = <button className="btn btn-refresh" disabled><i className='fa fa-refresh fa-spin'></i></button> 
+    } else {
+      loading_buttom = <button className="btn btn-refresh" onClick={this.handleRefresh}><i className='fa fa-refresh'></i></button>
+
+    } 
     return (
       <div className='container exchanges'>
         <div className='row'>
@@ -79,7 +87,7 @@ var Exchanges = React.createClass({
             <h3 className='page-header'>
               <div className='pull-left'>All exchanges</div>
               <div className='pull-right'>
-                <button className="btn btn-refresh" onClick={this.handleRefresh}><i className='fa fa-refresh'></i></button>
+                {loading_buttom}           
               </div>
             </h3>
           </div>
