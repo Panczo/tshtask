@@ -73,7 +73,7 @@ Tshtask::Application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-
+  config.active_job.queue_adapter = :sidekiq
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,

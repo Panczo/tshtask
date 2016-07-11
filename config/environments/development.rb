@@ -27,6 +27,7 @@ Tshtask::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   config.active_job.queue_adapter = :sidekiq
+  
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
