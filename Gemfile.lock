@@ -91,6 +91,8 @@ GEM
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
       mail (~> 2.6.3)
+    email_validator (1.6.0)
+      activemodel
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.7.0)
@@ -285,6 +287,7 @@ DEPENDENCIES
   devise
   devise-async
   email_spec
+  email_validator
   factory_girl_rails
   figaro
   font-awesome-rails

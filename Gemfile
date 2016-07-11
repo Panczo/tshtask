@@ -24,7 +24,7 @@ gem 'lodash-rails'
 gem 'toastr-rails'
 gem 'chartkick'
 gem 'groupdate'
-
+gem 'email_validator'
 
 group :development do
   gem 'better_errors'
