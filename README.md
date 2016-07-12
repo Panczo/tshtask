@@ -15,8 +15,6 @@ THE SOFTWARE HOUSE - quest dla programisty ruby
 * uzupełniono testy dla modeli i kontrolerów używając Rspec
 
 ----
-## W skrócie:
-
 
 *Adept Arcyprogramatora RoR*
 
